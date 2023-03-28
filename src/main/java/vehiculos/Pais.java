@@ -1,18 +1,18 @@
 package vehiculos;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
 
 public class Pais {
 	private String nombre;
-	private static Map<String, Integer> map = new HashMap<String, Integer>();
+	private static ArrayList<Pais> paises = new ArrayList();
+	private int cantidad = 0;
 	
 	public Pais(String nombre) {
 		this.nombre = nombre;
 	}
 	
 	//nombre attribute
-	public String getNombre() {
+	public String getNombre(){
 		return nombre;
 	}
 
@@ -20,26 +20,29 @@ public class Pais {
 		this.nombre = nombre;
 	}
 	
-	public void actualizarContador(){
-		if(map.get(nombre) == null){
-			map.put(nombre, 1);			
-		}
-		else {
-			int contador = map.get(nombre);
-			map.replace(nombre, ++contador);
-		}
+	@Override
+	public String toString() {
+		return "Pais [nombre=" + nombre + "]";
 	}
 	
-	public static String paisMasVendedor() {
-		int valorMax = 0;
-		String paisMasVendedor = null;
-		for (Map.Entry<String, Integer> entrada : map.entrySet()) {
-			final int valorActual = entrada.getValue();
-		    if (valorActual > valorMax) {
-		    	valorMax = valorActual;
-		    	paisMasVendedor	= entrada.getKey(); 	
-		    }
-        }
-		return paisMasVendedor;
+	public int getCantidad(){
+		return cantidad;
 	}
+	
+	public void actualizarContador(){
+		++cantidad;
+	}
+	
+	public static Pais paisMasVendedor() {
+		int cantidadMaxima = 0;
+    	Pais paisMasVendedor = null;
+	    for(int i = 0; i < paises.size(); i++){
+	        if (paises.get(i).getCantidad() > cantidadMaxima){
+	        	cantidadMaxima = paises.get(i).getCantidad();
+	        	paisMasVendedor = paises.get(i);
+	        }      
+	    }
+        return paisMasVendedor;
+	}
+
 }

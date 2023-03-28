@@ -41,6 +41,12 @@ public class Fabricante {
 		}
 	}
 	
+	
+	@Override
+	public String toString() {
+		return "Fabricante [nombre=" + nombre + ", pais=" + pais + "]";
+	}
+
 	public static String fabricaMayorVentas() {
 		int valorMax = 0;
 		String fabricaMayorVentas = null;
@@ -53,5 +59,6 @@ public class Fabricante {
         }
 		return fabricaMayorVentas;
 	}
+	
 	
 }
