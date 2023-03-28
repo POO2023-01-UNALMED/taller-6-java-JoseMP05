@@ -28,7 +28,7 @@ public class Vehiculo {
 	}
 	
 	public String vehiculosPorTipo() {
-		return String.format("Automoviles: %s \nCamionetas: %s \nCamiones: %s", CantidadAutomoviles, CantidadCamionetas, CantidadCamiones);
+		return String.format("Automoviles: %s \nCamionetas: %s \nCamiones: %s", Automovil.getCantidadAutomoviles(), Camion.getCantidadCamiones(), Camioneta.getCantidadCamionetas());
 	}	
 	
 	
