@@ -102,6 +102,10 @@ public class Vehiculo {
 		return CantidadVehiculos;
 	}
 
+	public static void setCantidadVehiculos(int i) {
+		CantidadVehiculos = i;
+	}
+
 	
 	
 }
