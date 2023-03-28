@@ -1,12 +1,12 @@
 package vehiculos;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
 
 public class Fabricante {
 	private String nombre;
 	private Pais pais;
-	private static Map<String, Integer> map = new HashMap<String, Integer>();
+	private static ArrayList<Fabricante> fabricante = new ArrayList();
+	private int cantidad = 0;
 	
 	public Fabricante(String nombre, Pais pais) {
 		this.nombre = nombre;
@@ -31,34 +31,29 @@ public class Fabricante {
 		this.pais = pais;
 	}
 	
-	public void actualizarContador(){
-		if(map.get(nombre) == null){
-			map.put(nombre, 1);			
-		}
-		else {
-			int contador = map.get(nombre);
-			map.replace(nombre, ++contador);
-		}
+	
+	public int getCantidad(){
+		return cantidad;
 	}
 	
+	public void actualizarContador(){
+		++cantidad;
+	}
+	
+	public static Fabricante fabricaMayorVentas() {
+		int cantidadMaxima = 0;
+		Fabricante FabricanteMasVendedor = null;
+	    for(int i = 0; i < fabricante.size(); i++){
+	        if (fabricante.get(i).getCantidad() > cantidadMaxima){
+	        	cantidadMaxima = fabricante.get(i).getCantidad();
+	        	FabricanteMasVendedor = fabricante.get(i);
+	        }      
+	    }
+        return FabricanteMasVendedor;
+	}
 	
 	@Override
 	public String toString() {
 		return "Fabricante [nombre=" + nombre + ", pais=" + pais + "]";
 	}
-
-	public static String fabricaMayorVentas() {
-		int valorMax = 0;
-		String fabricaMayorVentas = null;
-		for (Map.Entry<String, Integer> entrada : map.entrySet()) {
-			final int valorActual = entrada.getValue();
-		    if (valorActual > valorMax) {
-		    	valorMax = valorActual;
-		    	fabricaMayorVentas	= entrada.getKey(); 	
-		    }
-        }
-		return fabricaMayorVentas;
-	}
-	
-	
 }

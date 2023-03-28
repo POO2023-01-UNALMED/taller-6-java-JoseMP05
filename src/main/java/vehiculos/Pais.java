@@ -20,10 +20,6 @@ public class Pais {
 		this.nombre = nombre;
 	}
 	
-	@Override
-	public String toString() {
-		return "Pais [nombre=" + nombre + "]";
-	}
 	
 	public int getCantidad(){
 		return cantidad;
@@ -45,4 +41,8 @@ public class Pais {
         return paisMasVendedor;
 	}
 
+	@Override
+	public String toString() {
+		return "Pais [nombre=" + nombre + "]";
+	}
 }
