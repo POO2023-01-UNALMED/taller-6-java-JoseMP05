@@ -20,7 +20,7 @@ public class Main {
 		System.out.println(Pais.paisMasVendedor());
 		System.out.println(Fabricante.fabricaMayorVentas());
 		System.out.println(Vehiculo.vehiculosPorTipo());
-		System.out.println(p1.paisMasVendedor().getNombre());
+		System.out.println(Pais.paisMasVendedor().getNombre());
 		Vehiculo.setCantidadVehiculos(0);
 	}
 

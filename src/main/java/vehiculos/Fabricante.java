@@ -5,12 +5,13 @@ import java.util.ArrayList;
 public class Fabricante {
 	private String nombre;
 	private Pais pais;
-	private static ArrayList<Fabricante> fabricante = new ArrayList<Fabricante>();
+	private static ArrayList<Fabricante> fabricantes = new ArrayList<Fabricante>();
 	private int cantidad = 0;
 	
 	public Fabricante(String nombre, Pais pais) {
 		this.nombre = nombre;
 		this.pais = pais;
+		fabricantes.add(this);
 	}
 	
 	//nombre attribute
@@ -43,10 +44,10 @@ public class Fabricante {
 	public static Fabricante fabricaMayorVentas() {
 		int cantidadMaxima = 0;
 		Fabricante FabricanteMasVendedor = null;
-	    for(int i = 0; i < fabricante.size(); i++){
-	        if (fabricante.get(i).getCantidad() > cantidadMaxima){
-	        	cantidadMaxima = fabricante.get(i).getCantidad();
-	        	FabricanteMasVendedor = fabricante.get(i);
+	    for(int i = 0; i < fabricantes.size(); i++){
+	        if (fabricantes.get(i).getCantidad() > cantidadMaxima){
+	        	cantidadMaxima = fabricantes.get(i).getCantidad();
+	        	FabricanteMasVendedor = fabricantes.get(i);
 	        }      
 	    }
         return FabricanteMasVendedor;

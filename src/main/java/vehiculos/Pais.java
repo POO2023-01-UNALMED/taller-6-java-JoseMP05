@@ -9,6 +9,7 @@ public class Pais {
 	
 	public Pais(String nombre) {
 		this.nombre = nombre;
+		paises.add(this);
 	}
 	
 	//nombre attribute
