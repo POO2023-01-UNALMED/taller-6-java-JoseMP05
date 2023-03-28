@@ -10,9 +10,6 @@ public class Vehiculo {
 	protected String traccion;
 	protected Fabricante fabricante;
 	protected static int CantidadVehiculos = 0;
-	protected static int CantidadAutomoviles = 0;
-	protected static int CantidadCamiones = 0;
-	protected static int CantidadCamionetas = 0;
 	
 	public Vehiculo(String placa, int puertas, int velocidadMaxima, String nombre, int precio, int peso,
 			String traccion, Fabricante fabricante) {
@@ -24,11 +21,13 @@ public class Vehiculo {
 		this.peso = peso;
 		this.traccion = traccion;
 		this.fabricante = fabricante;
-		++CantidadVehiculos;  
+		++CantidadVehiculos; 
+		fabricante.actualizarContador();
+		fabricante.getPais().actualizarContador();
 	}
 	
-	public String vehiculosPorTipo() {
-		return String.format("Automoviles: %s \nCamionetas: %s \nCamiones: %s", Automovil.getCantidadAutomoviles(), Camion.getCantidadCamiones(), Camioneta.getCantidadCamionetas());
+	public static String vehiculosPorTipo() {
+		return String.format("Automoviles: %s\nCamionetas: %s\nCamiones: %s", Automovil.getCantidadAutomoviles(), Camioneta.getCantidadCamionetas(), Camion.getCantidadCamiones());
 	}	
 	
 	

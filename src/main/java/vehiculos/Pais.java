@@ -9,13 +9,6 @@ public class Pais {
 	
 	public Pais(String nombre) {
 		this.nombre = nombre;
-		if(map.get(nombre) == null){
-			map.put(nombre, 1);			
-		}
-		else {
-			int contador = map.get(nombre);
-			map.replace(nombre, ++contador);
-		}
 	}
 	
 	//nombre attribute
@@ -27,7 +20,17 @@ public class Pais {
 		this.nombre = nombre;
 	}
 	
-	public String paisMasVendedor() {
+	public void actualizarContador(){
+		if(map.get(nombre) == null){
+			map.put(nombre, 1);			
+		}
+		else {
+			int contador = map.get(nombre);
+			map.replace(nombre, ++contador);
+		}
+	}
+	
+	public static String paisMasVendedor() {
 		int valorMax = 0;
 		String paisMasVendedor = null;
 		for (Map.Entry<String, Integer> entrada : map.entrySet()) {

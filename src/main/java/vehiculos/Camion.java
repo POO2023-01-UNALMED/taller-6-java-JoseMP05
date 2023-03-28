@@ -23,5 +23,13 @@ public class Camion extends Vehiculo{
 	public static int getCantidadCamiones() {
 		return CantidadCamiones;
 	}
+
+	@Override
+	public String toString() {
+		return "Camion [ejes=" + ejes + ", placa=" + placa + ", puertas=" + puertas + ", velocidadMaxima="
+				+ velocidadMaxima + ", nombre=" + nombre + ", precio=" + precio + ", peso=" + peso + ", traccion="
+				+ traccion + ", fabricante=" + fabricante + "]";
+	}
+	
 	
 }
